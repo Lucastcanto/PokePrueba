@@ -35,7 +35,6 @@ else
   console.log("Backend retorno el codigo de estado ",error.status,error.error)
 }
 return throwError(()=>new Error("Algo fallo, intente de nuevo."))
-
 }
 get userData():Observable<User>{
   return this.currentUserData.asObservable();

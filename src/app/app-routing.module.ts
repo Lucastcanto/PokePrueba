@@ -4,7 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/inicio', pathMatch:'full'},
+  {path:'',redirectTo:'iniciar-sesion', pathMatch:'full'},
   {path:'inicio',component:DashboardComponent},
   {path:'iniciar-sesion',component:LoginComponent}
 ];
