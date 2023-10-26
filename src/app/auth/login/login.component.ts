@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     }
     else
     {
-
+      //mensaje de errror en los datos.
     }
   }
 }
