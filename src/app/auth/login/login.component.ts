@@ -29,27 +29,26 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls.password;
   }
 
-  login(){
-    if (this.loginForm.valid){
-     this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-    next: (userData)=> {
-    console.log(userData);
-    },
-    error: (errorData)=>{
-      console.error(errorData);
-      this.loginError=errorData; 
-    },
-    complete:() =>{
-      console.info("Login Completo")
-      this.router.navigateByUrl('/inicio');
-      this.loginForm.reset();
-    }
-
-     })
-    }
-    else
-    {
-      //mensaje de errror en los datos.
+  login() {
+    if (this.loginForm.valid) {
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next: (userData) => {
+          console.log(userData);
+          // Realizar redirección solo si las credenciales son correctas
+          this.router.navigateByUrl('/inicio');
+          this.loginForm.reset();
+        },
+        error: (errorData) => {
+          console.error(errorData);
+          this.loginError = errorData;
+          // No realizar redirección en caso de error
+        },
+        complete: () => {
+          console.info("Login Completo");
+        }
+      });
+    } else {
+      // Mensaje de error en los datos.
     }
   }
 }

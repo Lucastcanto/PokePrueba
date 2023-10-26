@@ -2,5 +2,6 @@
     "id":"4",
     "nombre":"lucas tomas",
     "apellido":"canto",
-    "email":"lucastomascanto@gmail.com"
+    "email":"lucastomascanto@gmail.com",
+    "password":"lucas"
 }
