@@ -3,7 +3,7 @@ export interface User{
     nombre?:string,
     apellido?:string,
     email:string,
-    password?:string,
+    contrasenia?:string,
     creditos?:number,
     pokebolas?:number
 }

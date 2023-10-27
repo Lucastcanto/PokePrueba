@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/auth/login.service';
-import { LoginRequest } from 'src/app/services/loginRequest';
 
 @Component({
   selector: 'app-login',
@@ -31,24 +30,26 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    const email=this.loginForm.valid
+    const email=this.loginForm.controls.email.value
+    console.log(email)
     if (email!=null) {
-      this.loginService.login(this.loginForm.value as LoginRequest,email.toString() ).subscribe({
-        next: (userData) => {
-          console.log(userData);
-          // Realizar redirección solo si las credenciales son correctas
-          this.router.navigateByUrl('/inicio');
-          this.loginForm.reset();
+      this.loginService.getUser(email.toString() ).subscribe(
+        (response) => {
+          console.log(response)
+          if (response.contrasenia == this.loginForm.controls.password.value)
+          {
+            this.router.navigate(["/inicio"]);
+            localStorage.setItem("user",JSON.stringify({nombre:response.nombre,apellido:response.apellido,email:response.email,creditos:response.creditos,pokebolas:response.pokebolas,id:response.id}))
+          }
+          else
+          {
+            console.log("contrasenia incorrecta");
+          }
         },
-        error: (errorData) => {
-          console.error(errorData);
-          this.loginError = errorData;
-          // No realizar redirección en caso de error
-        },
-        complete: () => {
-          console.info("Login Completo");
+        (error) => {
+          console.log(error["error"]["message"])
         }
-      });
+      );
     } else {
       // Mensaje de error en los datos.
     }

@@ -7,29 +7,21 @@ import { User } from 'src/app/services/auth/user';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit , OnDestroy {
-  userLoginOn:boolean=false;
-  userData?:User;
-  constructor(private loginService:LoginService) { }
+export class DashboardComponent{
+  
+  datos:string | null
+  user:any
+  
+  constructor(private loginService:LoginService) { 
+    this.datos = localStorage.getItem("user")
 
-  ngOnDestroy(): void {
-    this.loginService.currentUserData.unsubscribe();
-    this.loginService.currentUserLoginOn.unsubscribe();
+    if(this.datos){
+      this.user = JSON.parse(this.datos)
+    }
+    console.log(this.user)    
   }
 
-  ngOnInit(): void {
-    this.loginService.currentUserLoginOn.subscribe({
-      next:(userLoginOn) => {
-        this.userLoginOn=userLoginOn;
-      }
-    });
+
+
  
-    this.loginService.currentUserData.subscribe({
-      next:(userData)=>{
-        this.userData=userData;
-      }
-    })
-
-  }
-
 }

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginRequest } from '../loginRequest';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError, BehaviorSubject, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 
 @Injectable({
@@ -9,25 +7,14 @@ import { User } from './user';
 })
 export class LoginService {
 
-currentUserLoginOn:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-currentUserData: BehaviorSubject<User>=new BehaviorSubject<User>({email:""}); //ACA DEBERIA TRABAJARSE CON UN LOCAL STORAGE
-  
-constructor(private http:HttpClient) { }
+  private apiUrl = "https://api-tpi-production.up.railway.app/api/login/"
 
-login(credentials: LoginRequest, email:string | null): Observable<User> {
-  return this.http.get<User>("https://api-tpi-production.up.railway.app/api/login/"+email).pipe(
-    catchError((error) => {
-      if (error.status === 401) {
-        return throwError(()=>new Error("Credenciales incorrectas."))
-      } else {
-        return throwError(()=>new Error("Algo fallo."))
-      }
-    })
-  );
-}
+  constructor(private http: HttpClient) { }
 
+  getUser(email: string){
+    let response = this.http.get<User>(this.apiUrl+email)
 
-get userData():Observable<User>{
-  return this.currentUserData.asObservable();
-}
+     return response
+
+  }
 }
