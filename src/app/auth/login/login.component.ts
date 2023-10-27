@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls.password;
   }
 
+
   login() {
-    if (this.loginForm.valid) {
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+    const email=this.loginForm.valid
+    if (email!=null) {
+      this.loginService.login(this.loginForm.value as LoginRequest,email.toString() ).subscribe({
         next: (userData) => {
           console.log(userData);
           // Realizar redirección solo si las credenciales son correctas

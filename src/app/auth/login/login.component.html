@@ -9,7 +9,7 @@
             <div *ngIf="email.errors?.['required']">
                 El Email es requerido.
             </div>
-            <div *ngIf="email.errors?.['email']">
+            <div *ngIf="loginForm.errors?.['email']">
                 El Email debe tener un formato válido.
             </div>
         </div>

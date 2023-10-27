@@ -1,7 +1,9 @@
 export interface User{
-    id:number, //obligatorio
+    id?:number, 
     nombre?:string,
     apellido?:string,
-    email:string
-    password:string
+    email:string,
+    password?:string,
+    creditos?:number,
+    pokebolas?:number
 }
