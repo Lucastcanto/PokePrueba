@@ -1,0 +1,10 @@
+<ul>
+    <button (click)="showPokemon(pokemon, pokemonName, pokemonImg, pokemonDesc, typeList)" *ngFor="let pokemon of pokedex">{{pokemon.name}}</button>
+</ul>
+
+<div>
+    <h3 #pokemonName id="pokemonName"></h3>
+    <img src="" alt="" #pokemonImg id="pokemonImg">
+    <p #pokemonDesc id="pokemonDesc"></p>
+    <ul #typeList id="typeList"></ul>
+</div>

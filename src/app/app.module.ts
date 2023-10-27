@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { UserInfoComponent } from './shared/user-info/user-info.component';
+import { PokedexComponent } from './pages/pokedex/pokedex.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserInfoComponent } from './shared/user-info/user-info.component';
     DashboardComponent,
     LoginComponent,
     SidebarComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    PokedexComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { User } from 'src/app/services/auth/user';
+import { PokedexComponent } from 'src/app/pages/pokedex/pokedex.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,16 +13,12 @@ export class DashboardComponent{
   datos:string | null
   user:any
   
-  constructor(private loginService:LoginService) { 
+  constructor(private loginService:LoginService,) { 
     this.datos = localStorage.getItem("user")
 
     if(this.datos){
       this.user = JSON.parse(this.datos)
     }
-    console.log(this.user)    
-  }
-
-
-
- 
+    console.log(this.user)  
+  } 
 }
