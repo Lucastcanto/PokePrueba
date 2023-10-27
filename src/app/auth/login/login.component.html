@@ -22,6 +22,9 @@
             <div *ngIf="password.errors?.['required']">
                 El Password es requerido.
             </div>
+            <div *ngIf="password.errors">
+                {{ loginError }}
+              </div>
         </div> 
     </div>
     <button type="submit" (click)="login()" class="btn btn-danger text-dark fw-bold">Iniciar Sesión</button>

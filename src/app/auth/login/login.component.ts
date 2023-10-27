@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
           else
           {
             console.log("contrasenia incorrecta");
+            this.loginError="Contraseña incorrecta";
           }
         },
         (error) => {

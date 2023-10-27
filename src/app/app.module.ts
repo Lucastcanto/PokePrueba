@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { UserInfoComponent } from './shared/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     FooterComponent,
     DashboardComponent,
     LoginComponent,
-    SidebarComponent
+    SidebarComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
