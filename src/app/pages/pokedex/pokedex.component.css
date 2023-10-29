@@ -1,0 +1,16 @@
+.card {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: 2px solid #333; /* Borde */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interior */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  .card h3 {
+    color: #333; /* Color del texto del nombre */
+    font-size: 24px; /* Tamaño del texto del nombre */
+    margin-top: 10px; /* Espaciado superior */
+  }
+  
+  /* Puedes seguir personalizando según tus preferencias */
+  

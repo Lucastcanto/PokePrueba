@@ -14,6 +14,8 @@ import { flavor_text_entry } from '../../models/flavour-text.model';
 })
 export class PokedexComponent {
   pokedex: Pokemon[]=[];
+  selectedPokemon: Pokemon | null = null;
+
 
   constructor(private pokemonService: PokemonService,private pokemonSpeciesService: PokemonSpeciesService){
     for (let index = 1; index < 152; index++) {
@@ -47,32 +49,31 @@ export class PokedexComponent {
     });
   }
 
-  showPokemon(pokemon: Pokemon, pokemonName: HTMLElement, pokemonImg : HTMLImageElement, pokemonDesc : HTMLElement, typeList: HTMLElement){
-      console.log(pokemon)
-      pokemonName.innerText = pokemon.name
-      pokemonImg.src  = pokemon.sprites.front_default
-
-      this.pokemonSpeciesService.getspecies(pokemon.species.url).subscribe((response) => {
-        let desc = response.flavor_text_entries.find(flavour_text => flavour_text.language.name === "es")
-        if(desc){
-          pokemonDesc.innerText = desc.flavor_text;
-        }
-      })
-
-      while(typeList.firstChild){
-        typeList.firstChild.remove()
+  showPokemon(pokemon: Pokemon, pokemonName: HTMLElement, pokemonImg: HTMLImageElement, pokemonDesc: HTMLElement, typeList: HTMLElement) {
+    this.selectedPokemon = pokemon;
+    if (pokemonName) {
+      pokemonName.innerText = pokemon.name.toUpperCase();
+    }
+    if (pokemonImg) {
+      pokemonImg.src = pokemon.sprites.front_default;
+    }
+    this.pokemonSpeciesService.getspecies(pokemon.species.url).subscribe((response) => {
+      let desc = response.flavor_text_entries.find(flavour_text => flavour_text.language.name === "es");
+      if (pokemonDesc && desc) {
+        pokemonDesc.innerText = desc.flavor_text;
       }
-
+    });
+    while (typeList && typeList.firstChild) {
+      typeList.firstChild.remove();
+    }
+    if (typeList) {
       pokemon.types.forEach(type => {
-        let listItem: HTMLElement = document.createElement("li")
-
+        let listItem: HTMLElement = document.createElement("li");
         listItem.innerText = type.type.name;
-
-        if(typeList){
-          typeList.appendChild(listItem)
-        }
-        
+        typeList.appendChild(listItem);
       });
+    }
   }
+  
 
 }

@@ -22,7 +22,7 @@ import { PokedexComponent } from './pages/pokedex/pokedex.component';
     LoginComponent,
     SidebarComponent,
     UserInfoComponent,
-    PokedexComponent
+    PokedexComponent,
   ],
   imports: [
     BrowserModule,
