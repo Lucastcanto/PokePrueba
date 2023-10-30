@@ -1,0 +1,59 @@
+<app-header></app-header>
+<form [formGroup]="signupForm">
+
+    <p class="text-danger">{{signupError}}</p>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="text-danger">
+            <div *ngIf="email.errors?.['required']">
+                El Email es requerido.
+            </div>
+            <div *ngIf="signupForm.errors?.['email']">
+                El Email debe tener un formato válido.
+            </div>
+        </div>  
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-danger">
+            <div *ngIf="password.errors?.['required']">
+                El Password es requerido.
+            </div>
+            <div *ngIf="password.errors">
+                {{ signupError }}
+              </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre:</label>
+        <input formControlName="name" type="text" class="form-control" id="nombreHTML" aria-describedby="nameHelp">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="text-danger">
+            <div *ngIf="name.errors?.['required']">
+                El nombre es requerido.
+            </div>
+        </div>  
+    </div>
+    
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Apellido:</label>
+        <input formControlName="lastName" type="text" class="form-control" id="lastNameHTML" aria-describedby="lastnameHelp">
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+            class="text-danger">
+            <div *ngIf="lastName.errors?.['required']">
+                El apellido es requerido.
+            </div>
+        </div> 
+    </div>
+    <div class="mt-4">
+        <button type="submit"  (click)="signup()" class="btn btn-danger text-dark fw-bold">Registrarse</button>
+    </div>
+    
+</form>

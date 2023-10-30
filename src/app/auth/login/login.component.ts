@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error["error"]["message"])
+          this.loginError="Usuario incorrecto";
         }
       );
     } else {

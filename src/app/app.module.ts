@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { UserInfoComponent } from './shared/user-info/user-info.component';
 import { PokedexComponent } from './pages/pokedex/pokedex.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PokedexComponent } from './pages/pokedex/pokedex.component';
     SidebarComponent,
     UserInfoComponent,
     PokedexComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
