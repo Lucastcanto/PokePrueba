@@ -32,6 +32,12 @@ export class PokedexComponent {
     console.log(this.pokedex.find(pokemon => this.isPokemon(id, pokemon)))
   }
 
+  getPokemonName(){
+    let input = document.getElementById("name") as HTMLInputElement
+    let name = input.value
+    return(this.pokedex.find(pokemon => this.isPokemonName(name, pokemon)))
+  }
+
   isPokemon(id: number, pokemon: Pokemon){
     if(pokemon.id == id){
       console.log("es")
@@ -41,6 +47,16 @@ export class PokedexComponent {
       return false
     }
 
+  }
+
+  isPokemonName(name:string, pokemon: Pokemon){
+    if(pokemon.name == name){
+      console.log("es")
+      return true
+    }else{
+      console.log("no es")
+      return false
+    }
   }
 
   logPokedex(){
@@ -74,6 +90,40 @@ export class PokedexComponent {
       });
     }
   }
-  
+
+  showPokemonSearched(pokemon: Pokemon | undefined, pokemonName: HTMLElement, pokemonImg: HTMLImageElement, pokemonDesc: HTMLElement, typeList: HTMLElement) {
+    if(pokemon){
+
+      if (pokemonName) {
+        pokemonName.innerText = pokemon.name.toUpperCase();
+      }
+      if (pokemonImg) {
+        pokemonImg.src = pokemon.sprites.front_default;
+      }
+      this.pokemonSpeciesService.getspecies(pokemon.species.url).subscribe((response) => {
+        let desc = response.flavor_text_entries.find(flavour_text => flavour_text.language.name === "es");
+        if (pokemonDesc && desc) {
+          pokemonDesc.innerText = desc.flavor_text;
+        }
+      });
+      while (typeList && typeList.firstChild) {
+        typeList.firstChild.remove();
+      }
+      if (typeList) {
+        pokemon.types.forEach(type => {
+          let listItem: HTMLElement = document.createElement("li");
+          listItem.innerText = type.type.name;
+          typeList.appendChild(listItem);
+        });
+      }
+
+    }else{
+      //dejar aca avisar no encontrado
+    }
+    
+  }
 
 }
+
+
+

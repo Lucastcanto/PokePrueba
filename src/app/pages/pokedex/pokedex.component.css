@@ -4,6 +4,7 @@
     border-radius: 10px; /* Bordes redondeados */
     padding: 20px; /* Espaciado interior */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    margin-top: 13rem;
   }
   
   .card h3 {
