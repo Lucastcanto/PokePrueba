@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
   user: any;
+  img: string = '../assets/images/EntrenadorPokemon1.jpg'
 
   constructor() {
     this.user = localStorage.getItem('user');
-    if (this.user) {
+    if (this.user) {                                 //AGREGAR LOGICA IMAGEN PERFIL
       try {
         this.user = JSON.parse(this.user);
       } catch (error) {
