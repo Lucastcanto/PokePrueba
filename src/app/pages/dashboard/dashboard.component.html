@@ -9,6 +9,11 @@
             <div id="userLogin">
               <h3>METER info aca</h3>
               <app-user-info></app-user-info>
+              <h3>mis pokemon:</h3>
+              <ul>
+                <li *ngFor="let pokemon of coleccion">{{pokemon.name}}</li>
+              </ul>
+              
             </div>
           </div>
         </div>

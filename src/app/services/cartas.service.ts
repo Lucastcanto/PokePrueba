@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { carta } from '../models/carta.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CartasService {
   constructor(private http: HttpClient) { }
 
   getUserCards(id: number){
-    let response = this.http.get(this.apiUrl+id)
+    let response = this.http.get<carta[]>(this.apiUrl+id)
 
     return response
   }

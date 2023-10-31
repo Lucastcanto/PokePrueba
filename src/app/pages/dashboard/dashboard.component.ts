@@ -17,7 +17,7 @@ export class DashboardComponent{
   user:any
   coleccion: Pokemon[] = []
   
-  constructor(private cartasService:CartasService) { 
+  constructor(private cartasService:CartasService, private pokemonService: PokemonService) { 
     this.datos = localStorage.getItem("user")
 
     if(this.datos){
@@ -46,12 +46,36 @@ export class DashboardComponent{
       this.cartasService.getUserCards(this.user.id).subscribe(
         (response)=>{
          console.log(response)
+         response.forEach(carta => {
+          this.pokemonService.getPokemon(carta.pokemonID.toString()).subscribe(
+            (response)=>{
+              console.log(response)
+              this.coleccion.push(response)
+            },
+            (error)=>{
+              console.log(error)
+            }
+          )
+         });
         },
         (error)=>{
           console.log(error)
         }
       )
     }
+  }
+
+  getPokemon(id:string){
+    this.pokemonService.getPokemon(id).subscribe(
+      (response)=>{
+        console.log(response)
+        return response
+        
+      },
+      (error)=>{
+        return error
+      }
+    )
   }
 
 
