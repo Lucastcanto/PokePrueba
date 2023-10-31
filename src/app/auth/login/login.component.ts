@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           if (response.contrasenia == this.loginForm.controls.password.value)
           {
             this.router.navigate(["/inicio"]);
-            localStorage.setItem("user",JSON.stringify({nombre:response.nombre,apellido:response.apellido,email:response.email,creditos:response.creditos,pokebolas:response.pokebolas,id:response.id}))
+            localStorage.setItem("user",JSON.stringify({nombre:response.nombre,apellido:response.apellido,email:response.email,creditos:response.creditos,pokebolas:response.pokebolas,id:response.userid}))
           }
           else
           {
