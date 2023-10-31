@@ -13,6 +13,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { UserInfoComponent } from './shared/user-info/user-info.component';
 import { PokedexComponent } from './pages/pokedex/pokedex.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     UserInfoComponent,
     PokedexComponent,
     SignupComponent,
+    ModificarPerfilComponent,
   ],
   imports: [
     BrowserModule,

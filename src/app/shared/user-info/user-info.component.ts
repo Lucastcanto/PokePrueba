@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-info',
@@ -9,7 +11,7 @@ export class UserInfoComponent implements OnInit {
   user: any;
   img: string = '../assets/images/EntrenadorPokemon1.jpg'
 
-  constructor() {
+  constructor(private router: Router) {
     this.user = localStorage.getItem('user');
     if (this.user) {                                 //AGREGAR LOGICA IMAGEN PERFIL
       try {
@@ -21,5 +23,17 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  confirmarCerrarSesion(): void {
+    if (confirm('¿Estás seguro de que deseas cerrar la sesión?')) {
+      this.cerrarSesion();
+    }
+  }
+
+  cerrarSesion()
+  {
+    localStorage.clear();
+    this.router.navigate(['/iniciar-sesion']);
+  }
 }
 

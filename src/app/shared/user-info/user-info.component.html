@@ -1,11 +1,14 @@
 <div class="user-info position-absolute top-0 end-0 p-2 bg-light rounded">
-    <div class="d-flex align-items-center"> 
-      <img src="{{img}}" class="rounded-circle me-2" width="40" height="40">
-    
-      <div>
-        <p class="m-0">Creditos: {{ user.creditos }}</p>
-        <p class="m-0">Pokebolas disponibles: {{ user.pokebolas }}</p>
-      </div>
+  <div class="d-flex align-items-center">
+    <img src="{{ img }}" class="rounded-circle me-2" width="40" height="40">
+    <div>
+      <p class="m-0">Creditos: {{ user.creditos }}</p>
+      <p class="m-0">Pokebolas disponibles: {{ user.pokebolas }}</p>
     </div>
   </div>
-  
+
+  <div class="d-flex mt-2">
+    <button class="btn btn-secondary btn-sm" [routerLink]="['modificar']">Modificar Perfil</button>
+    <button class="btn btn-secondary btn-sm" (click)="confirmarCerrarSesion()">Cerrar Sesión</button>
+  </div>
+</div>
