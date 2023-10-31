@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/services/auth/user';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -12,16 +12,39 @@ import { FormsModule } from '@angular/forms';
 export class ModificarPerfilComponent {
   user: User | undefined;
 
-  constructor(private router: Router, private formBuilder:FormsModule) {
-    
+    signupError:string="";
+    signupForm=this.formBuilder.group({
+      email:['',[Validators.required,Validators.email]],
+      password: ['',Validators.required],
+      name: ['', Validators.required],
+      lastName:['', Validators.required]
+    })
+  
+    constructor(private formBuilder:FormBuilder, private router:Router) {}
+
+    ngOnInit(): void {
+      // Recuperar datos de usuario del localStorage
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        this.user = JSON.parse(userData);
+      }
+    }
+
+  get email(){
+    return this.user?.email;
   }
 
-  ngOnInit(): void {
-    // Recuperar datos de usuario del localStorage
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      this.user = JSON.parse(userData);
-    }
+  get contrasenia()
+  {
+    return this.user?.contrasenia;
+  }
+  get nombre(){
+    return this.user?.nombre;
+  }
+
+  get apellido()
+  {
+    return this.user?.apellido;
   }
 
   actualizarPerfil() {

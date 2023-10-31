@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'iniciar-sesion',component:LoginComponent},
   {path: 'pokedex', component:PokedexComponent},
   {path: 'registrarse', component:SignupComponent},
-  {path: 'modificar',component:ModificarPerfilComponent}
+  { path: 'modificar-perfil', component: ModificarPerfilComponent},
 ];
 
 @NgModule({
