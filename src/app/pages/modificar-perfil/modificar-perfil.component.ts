@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/services/auth/user';
 import { FormBuilder, Validators} from '@angular/forms';
 
+import { SignupService } from 'src/app/services/auth/signup.service';
+
 
 @Component({
   selector: 'app-modificar-perfil',
@@ -20,7 +22,12 @@ export class ModificarPerfilComponent {
       lastName:['', Validators.required]
     })
   
-    constructor(private formBuilder:FormBuilder, private router:Router) {}
+    constructor(private formBuilder:FormBuilder, private router:Router, private signupService: SignupService) {
+      const userData = localStorage.getItem('user');
+      if (userData) {
+        this.user = JSON.parse(userData);
+      }
+    }
 
     ngOnInit(): void {
       // Recuperar datos de usuario del localStorage
@@ -47,12 +54,40 @@ export class ModificarPerfilComponent {
     return this.user?.apellido;
   }
 
-  actualizarPerfil() {
+  actualizarPerfil(event: MouseEvent) {
+    //falta terminar
     //  agregar lógica para actualizar el perfil
+    event.preventDefault()
+
+    let email = this.signupForm.controls.email.value
+    let nombre = this.signupForm.controls.name.value
+    let apellido = this.signupForm.controls.lastName.value
+    let contrasenia = this.signupForm.controls.password.value
+    console.log(this.user?.nombre)
+
+    if(this.user){
+      if(email == ""){
+        email = this.user?.email
+        console.log(email)
+      }
+      if(nombre == ""){
+        nombre = this.user?.nombre
+        console.log(nombre)
+      }
+      if(apellido == ""){
+        apellido = this.user?.apellido
+      }
+      if(contrasenia == ""){
+        contrasenia = this.user?.contrasenia
+      }
+    }
+    
+
+    console.log("email:"+email+" nombre:"+nombre+" apellido:"+apellido+" contrasenia:"+contrasenia)
     // Guardar los datos actualizados en el localStorage
     localStorage.setItem('user', JSON.stringify(this.user));
 
-    this.router.navigate(['/perfil']);
+    //this.router.navigate(['/perfil']);
   }
 }
 

@@ -22,4 +22,17 @@ export class SignupService {
 
     return response
   }
+
+  updateUser(id:string, name: string, apellido: string, email:string, password: string){
+    let headers = {'Content-Type': 'application/json', 'charset': 'utf-8'}
+    let body = JSON.stringify({
+      nombre: name,
+      apellido: apellido,
+      email: email,
+      contrasenia: password
+  })
+    let response = this.http.patch(this.apiUrl+id, body, {headers})
+
+    return response
+  }
 }
