@@ -35,5 +35,9 @@ export class UserInfoComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/iniciar-sesion']);
   }
+
+  modificarPerfil(){
+    this.router.navigate(['/modificar-perfil'])
+  }
 }
 

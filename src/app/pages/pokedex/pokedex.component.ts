@@ -22,6 +22,7 @@ export class PokedexComponent {
       this.pokemonService.getPokemon(index.toString()).subscribe((response) =>{
         //console.log(this.pokedex.length)
         this.pokedex.push(response)
+        this.pokedex.sort((a,b)=> a.id - b.id)
         //this.route.navigate(['pokemon'])
         })
     }
