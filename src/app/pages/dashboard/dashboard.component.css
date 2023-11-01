@@ -1,3 +1,42 @@
 h3{
     padding: 3%;
 }
+.grass-bg {
+    background-color: green;
+  }
+  
+  .fire-bg {
+    background-color: red;
+  }
+  
+  .water-bg {
+    background-color: blue;
+  }
+  
+  .poison-bg {
+    background-color: purple;
+  }
+
+  .electric-bg {
+    background-color: lightblue;
+  }
+
+  .psychic-bg {
+    background-color: goldenrod;
+  }
+
+  .fighting-bg {
+    background-color:red;
+  }
+
+  .ground-bg {
+    background-color:brown;
+  }
+
+  .flying-bg {
+    background-color:grey;
+  }
+
+  .bug-bg {
+    background-color: greenyellow;
+  }

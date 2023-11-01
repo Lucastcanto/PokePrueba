@@ -1,28 +1,40 @@
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 col-lg-3 col-xl-2 bg-danger">
-        <app-sidebar></app-sidebar>
-      </div>
-      <div class="col-md-12 col-lg-9 col-xl-10">
-        <div class="row">
-          <div class="col-12">
-            <div id="userLogin">
-              <h3>METER info aca</h3>
-              <app-user-info></app-user-info>
-              <h3>mis pokemon:</h3>
-              <ul>
-                <li *ngFor="let pokemon of coleccion">{{pokemon.name}}</li>
-              </ul>
-              
+  <div class="row">
+    <div class="col-md-12 col-lg-3 col-xl-2 bg-danger">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-12 col-lg-9 col-xl-10">
+      <div class="row">
+        <div class="col-12">
+          <div id="userLogin">
+            <app-user-info></app-user-info>
+            <h3>Coleccion de: {{user.nombre}}</h3>
+            <div class="row">
+              <div class="col-6 col-md-4 col-lg-3" *ngFor="let pokemon of coleccion">
+                <div class="card" style="width: 15rem;" 
+                [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'fire-bg': isFireType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon) }">
+                  <img [src]="pokemon.sprites.front_default" class="card-img-top" alt="Imagen del Pokemon">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ pokemon.name.toUpperCase() }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{pokemon.id}}</h6> 
+                    <div class="card-header bg-dark text-white">
+                      Tipo:
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
+</div>
+<app-footer></app-footer>
 
-  
   
   
   

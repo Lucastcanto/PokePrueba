@@ -16,10 +16,10 @@ export class ModificarPerfilComponent {
 
     signupError:string="";
     signupForm=this.formBuilder.group({
-      email:['',[Validators.required,Validators.email]],
-      password: ['',Validators.required],
-      name: ['', Validators.required],
-      lastName:['', Validators.required]
+      email:['',[Validators.email]],
+      password: [''],
+      name: [''],
+      lastName:['']
     })
   
     constructor(private formBuilder:FormBuilder, private router:Router, private signupService: SignupService) {

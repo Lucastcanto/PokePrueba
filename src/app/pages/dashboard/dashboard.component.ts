@@ -5,6 +5,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 
 import { User } from 'src/app/services/auth/user';
 import { PokedexComponent } from 'src/app/pages/pokedex/pokedex.component';
+import { type } from 'src/app/models/type.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,7 @@ export class DashboardComponent{
   datos:string | null
   user:any
   coleccion: Pokemon[] = []
+
   
   constructor(private cartasService:CartasService, private pokemonService: PokemonService) { 
     this.datos = localStorage.getItem("user")
@@ -79,5 +81,47 @@ export class DashboardComponent{
   }
 
 
+  isGrassType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'grass');
+  }
+  
+  isFireType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'fire');
+  }
+  
+  isWaterType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'water');
+  }
+
+  isPoisonType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'poison');
+  }
+
+  isElectricType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'electric');
+  }
+
+  isPsychicType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'psychic');
+  }
+
+  isFightingType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'fighting');
+  }
+
+  isGroundType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'ground');
+  }
+
+  isBugType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'bug');
+  }
+
+  isFlyingType(pokemon: Pokemon): boolean {
+    return pokemon.types.some((type: type) => type.type.name === 'flying');
+  }
 
 }
+
+
+
