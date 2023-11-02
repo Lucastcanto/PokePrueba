@@ -4,6 +4,7 @@ import { User } from 'src/app/services/auth/user';
 import { FormBuilder, Validators} from '@angular/forms';
 
 import { SignupService } from 'src/app/services/auth/signup.service';
+import { LoginService } from 'src/app/services/auth/login.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ModificarPerfilComponent {
       lastName:['']
     })
   
-    constructor(private formBuilder:FormBuilder, private router:Router, private signupService: SignupService) {
+    constructor(private formBuilder:FormBuilder, private router:Router, private signupService: SignupService, private loginService:LoginService) {
       const userData = localStorage.getItem('user');
       if (userData) {
         this.user = JSON.parse(userData);
@@ -58,34 +59,56 @@ export class ModificarPerfilComponent {
     //falta terminar
     //  agregar lógica para actualizar el perfil
     event.preventDefault()
-
-    let email = this.signupForm.controls.email.value
-    let nombre = this.signupForm.controls.name.value
-    let apellido = this.signupForm.controls.lastName.value
-    let contrasenia = this.signupForm.controls.password.value
-    console.log(this.user?.nombre)
+    
+    let email: string|null|undefined = this.signupForm.controls.email.value
+    let nombre: string|null|undefined = this.signupForm.controls.name.value
+    let apellido: string|null|undefined = this.signupForm.controls.lastName.value
+    let contrasenia: string|null|undefined = this.signupForm.controls.password.value
 
     if(this.user){
-      if(email == ""){
-        email = this.user?.email
-        console.log(email)
-      }
-      if(nombre == ""){
-        nombre = this.user?.nombre
-        console.log(nombre)
-      }
-      if(apellido == ""){
-        apellido = this.user?.apellido
-      }
-      if(contrasenia == ""){
-        contrasenia = this.user?.contrasenia
-      }
+      this.loginService.getUser(this.user.email).subscribe(
+        (response)=>{
+          if(email == ""){
+            email = this.user?.email
+          }
+          if(email == ""){
+            email = this.user?.email
+          }
+          if(nombre == ""){
+            nombre = this.user?.nombre
+          }
+          if(apellido == ""){
+            apellido = this.user?.apellido
+          }
+          if(contrasenia == ""){
+            contrasenia = response.contrasenia
+          }
+          let id = response.userid.toString()
+
+          console.log("email:"+email+"\nnombre:"+nombre+"\napellido:"+apellido+"\ncontrasenia:"+contrasenia+"\nid:"+id)
+          if(typeof(nombre) == "string" && typeof(apellido) == "string" && typeof(email) == "string" && typeof(contrasenia) == "string" && typeof(id) == "string"){
+            console.log("puedo mandar los datos")
+            this.signupService.updateUser(id,nombre,apellido,email,contrasenia).subscribe(
+              (response)=>{
+                console.log("perfil cambiado")
+                this.router.navigate(["/iniciar-sesion"])
+              },
+              (error)=>{
+                console.log("hubo un error o el email ya se ha utilizado en otra cuenta")
+              }
+            )
+          }
+          
+
+        }
+      )
+      
     }
     
 
-    console.log("email:"+email+" nombre:"+nombre+" apellido:"+apellido+" contrasenia:"+contrasenia)
+    
     // Guardar los datos actualizados en el localStorage
-    localStorage.setItem('user', JSON.stringify(this.user));
+    //localStorage.setItem('user', JSON.stringify(this.user));
 
     //this.router.navigate(['/perfil']);
   }

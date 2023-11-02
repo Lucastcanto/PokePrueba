@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
                 this.coleccion.push(response);
               },
               (error) => {
-                console.log(error);
+                console.log(error["message"]);
               }
             );
           });

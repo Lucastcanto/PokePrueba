@@ -31,7 +31,7 @@ export class SignupService {
       email: email,
       contrasenia: password
   })
-    let response = this.http.patch(this.apiUrl+id, body, {headers})
+    let response = this.http.patch(this.apiUrl+"/"+id, body, {headers})
 
     return response
   }
