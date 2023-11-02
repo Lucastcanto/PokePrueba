@@ -15,7 +15,7 @@ import { LoginService } from 'src/app/services/auth/login.service';
 export class ModificarPerfilComponent {
   user: User | undefined;
 
-    signupError:string="";
+    modifiedError:string="";
     signupForm=this.formBuilder.group({
       email:['',[Validators.email]],
       password: [''],
@@ -94,7 +94,8 @@ export class ModificarPerfilComponent {
                 this.router.navigate(["/iniciar-sesion"])
               },
               (error)=>{
-                console.log("hubo un error o el email ya se ha utilizado en otra cuenta")
+
+                this.modifiedError="El mail ya esta siendo utilizado en otra cuenta."
               }
             )
           }
