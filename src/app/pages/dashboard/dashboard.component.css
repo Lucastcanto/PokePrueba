@@ -1,6 +1,14 @@
 h3{
     padding: 3%;
 }
+
+.card{
+min-height: 5rem;
+min-width: 3rem;
+border: 1px solid #ccc;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 .grass-bg {
     background-color: green;
   }

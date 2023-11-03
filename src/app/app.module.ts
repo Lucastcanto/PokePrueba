@@ -14,6 +14,7 @@ import { UserInfoComponent } from './shared/user-info/user-info.component';
 import { PokedexComponent } from './pages/pokedex/pokedex.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
+import { TiendaComponent } from './pages/tienda/tienda.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-per
     PokedexComponent,
     SignupComponent,
     ModificarPerfilComponent,
+    TiendaComponent,
   ],
   imports: [
     BrowserModule,

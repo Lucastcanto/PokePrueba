@@ -11,8 +11,9 @@
             <h3>Coleccion de: {{user.nombre}}</h3>
             <div class="row">
               <div class="col-6 col-md-4 col-lg-3" *ngFor="let pokemon of coleccion">
-                <div class="card" style="width: 15rem;" 
-                [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'fire-bg': isFireType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon) }">
+                <div class="card border border-dark" style="width: 15rem; height: 31rem;" >
+                <div class="" style="width: 14.9rem; height: 10rem; border: 1px solid #ccc; box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);" 
+                  [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'fire-bg': isFireType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon) }">
                   <img [src]="pokemon.sprites.front_default" class="card-img-top" alt="Imagen del Pokemon">
                   <div class="card-body">
                     <h5 class="card-title">{{ pokemon.name.toUpperCase() }}</h5>
@@ -24,6 +25,7 @@
                       <li class="list-group-item" *ngFor="let type of pokemon.types">{{ type.type.name }}</li>
                     </ul>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
