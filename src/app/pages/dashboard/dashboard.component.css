@@ -10,41 +10,41 @@ box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .grass-bg {
-    background-color: green;
+    background-color: rgb(186, 255, 186);
   }
   
   .fire-bg {
-    background-color: red;
+    background-color: rgb(255, 210, 142);
   }
   
   .water-bg {
-    background-color: blue;
+    background-color: rgb(151, 204, 243);
   }
   
   .poison-bg {
-    background-color: purple;
+    background-color: rgb(254, 190, 254);
   }
 
   .electric-bg {
-    background-color: lightblue;
+    background-color: rgb(255, 255, 224);
   }
 
   .psychic-bg {
-    background-color: goldenrod;
+    background-color: rgb(243, 222, 169);
   }
 
   .fighting-bg {
-    background-color:red;
+    background-color:rgb(248, 174, 174);
   }
 
   .ground-bg {
-    background-color:brown;
+    background-color:rgb(162, 117, 117);
   }
 
   .flying-bg {
-    background-color:grey;
+    background-color:rgb(255, 255, 255);
   }
 
   .bug-bg {
-    background-color: greenyellow;
+    background-color: rgb(152, 251, 152);
   }

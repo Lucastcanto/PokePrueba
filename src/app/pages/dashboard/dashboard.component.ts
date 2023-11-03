@@ -63,44 +63,48 @@ export class DashboardComponent implements OnInit {
       );
     }
   }
-  isGrassType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'grass');
+  isGrassType(pokemon:Pokemon): boolean {
+    return (this.getPrimaryType(pokemon)=="grass")
   }
   
   isFireType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'fire');
+    return (this.getPrimaryType(pokemon)=="fire")
   }
   
   isWaterType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'water');
+    return (this.getPrimaryType(pokemon)=="water")
   }
 
   isPoisonType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'poison');
+    return (this.getPrimaryType(pokemon)=="poison")
   }
 
   isElectricType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'electric');
+    return (this.getPrimaryType(pokemon)=="electric")
   }
 
   isPsychicType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'psychic');
+    return (this.getPrimaryType(pokemon)=="psychic")
   }
 
   isFightingType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'fighting');
+    return (this.getPrimaryType(pokemon)=="fighting")
   }
 
   isGroundType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'ground');
+    return (this.getPrimaryType(pokemon)=="ground")
   }
 
   isBugType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'bug');
+    return (this.getPrimaryType(pokemon)=="bug")
   }
 
   isFlyingType(pokemon: Pokemon): boolean {
-    return pokemon.types.some((type: type) => type.type.name === 'flying');
+    return (this.getPrimaryType(pokemon)=="flying")
+  }
+
+  getPrimaryType(pokemon: Pokemon){
+    return pokemon.types[0].type.name;
   }
 
 }
