@@ -22,9 +22,11 @@
                   <label for="email" class="form-label">Correo Electrónico</label>
                   <input type="email" formControlName="email" id="email" class="form-control" placeholder="{{email}}">
                   <div class="text-danger">
-                  <div *ngIf="signupForm.controls.email">
-                    {{ modifiedError }}
-                  </div>
+              
+                    <div *ngIf="signupForm.controls.email">
+                      {{ modifiedError}}
+                    </div>
+
                 </div>
                 </div>
                 <div class="mb-3">

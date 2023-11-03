@@ -95,7 +95,7 @@ export class ModificarPerfilComponent {
               },
               (error)=>{
 
-                this.modifiedError="El mail ya esta siendo utilizado en otra cuenta."
+                this.modifiedError="El mail ya esta siendo utilizado en otra cuenta"
               }
             )
           }
