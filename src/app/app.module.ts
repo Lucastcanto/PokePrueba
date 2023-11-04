@@ -15,6 +15,7 @@ import { PokedexComponent } from './pages/pokedex/pokedex.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 import { TiendaComponent } from './pages/tienda/tienda.component';
+import { TransaccionComponent } from './pages/transaccion/transaccion.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TiendaComponent } from './pages/tienda/tienda.component';
     SignupComponent,
     ModificarPerfilComponent,
     TiendaComponent,
+    TransaccionComponent,
   ],
   imports: [
     BrowserModule,

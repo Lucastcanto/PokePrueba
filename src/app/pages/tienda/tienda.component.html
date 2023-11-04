@@ -10,38 +10,16 @@
             <app-user-info></app-user-info>
             <div class="row mt-5 justify-content-center">
               <h3>Opciones en tienda: </h3>
+
               <div class="d-flex py-4">
-
-                <div class="card" style="width: 25rem;" >
-                  <img src="../assets/images/NormalPokeBall.png" class="card-img-top" alt="NormalPokeBall">
+                <div class="card" style="width: 25rem;" *ngFor=" let offer of Offers">
+                  <img src="{{offer.img}}" class="card-img-top" alt="MasterPokeBall">
                   <div class="card-body">
-                    <h5 class="card-title">PokeBola Normal</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Incluye un pokemon aleatorio!</h6> 
-                    <button type="submit" class="btn btn-danger text-white fw-bold">Comprar</button>
-
+                    <h5 class="card-title">PokeBola {{offer.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Incluye {{offer.cantOfPokeballs}} pokemon aleatorios! ${{offer.price}}</h6> 
+                    <button (click)="buyOffer(offer)"  class="btn btn-danger text-white fw-bold">Comprar</button>
                   </div>
                 </div>
-
-                <div class="card" style="width: 25rem;" >
-                  <img src="../assets/images/UltraPokeBall.png" class="card-img-top" alt="UltraPokeBall">
-                  <div class="card-body">
-                    <h5 class="card-title">PokeBola Ultra</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Incluye 3 pokemon aleatorios!</h6> 
-                    <button type="submit"  class="btn btn-danger text-white fw-bold">Comprar</button>
-
-                  </div>
-                </div>
-
-                <div class="card" style="width: 25rem;" >
-                  <img src="../assets/images/MasterPokeBall.png" class="card-img-top" alt="MasterPokeBall">
-                  <div class="card-body">
-                    <h5 class="card-title">PokeBola Master</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Incluye 5 pokemon aleatorios!</h6> 
-                    <button type="submit"  class="btn btn-danger text-white fw-bold">Comprar</button>
-                  </div>
-                </div>
-
-
 
               </div>
             </div>
