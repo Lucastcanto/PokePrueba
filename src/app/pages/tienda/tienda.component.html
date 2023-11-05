@@ -16,7 +16,9 @@
                   <img src="{{offer.img}}" class="card-img-top" alt="MasterPokeBall">
                   <div class="card-body">
                     <h5 class="card-title">PokeBola {{offer.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Incluye {{offer.cantOfPokeballs}} pokemon aleatorios! ${{offer.price}}</h6> 
+                    <h6 class="card-subtitle mb-2 text-muted">Incluye {{offer.cantOfPokeballs}} pokemon aleatorios!</h6> 
+                    <h6 class="card-subtitle mb-2 text-danger">${{offer.price}}</h6> 
+
                     <button (click)="buyOffer(offer)"  class="btn btn-danger text-white fw-bold">Comprar</button>
                   </div>
                 </div>

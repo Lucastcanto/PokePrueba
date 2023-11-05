@@ -1,7 +1,54 @@
+<div class="row">
+  <div class="col-md-12 col-lg-3 col-xl-2 bg-danger">
+    <app-sidebar></app-sidebar>
+  </div>
 
+  <div class="col-md-12 col-lg-9 col-xl-10">
+    <div class="row">
+      <div class="col-12">
+        <div class="container mt-3"> 
+          <h2>Formulario de Compra</h2>
+          <form [formGroup]="creditCardForm" (ngSubmit)="comprar()">
+            <div class="form-group">
+              <label for="cardNumber">Número de Tarjeta de Crédito</label>
+              <input type="text" id="cardNumber" class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16">
+              <div *ngIf="cardNumber.errors && cardNumber.errors['required'] && (cardNumber.dirty || cardNumber.touched)">
+                <div class="text-danger">El número de tarjeta es obligatorio.</div>
+              </div>
+            </div>
 
-    <p *ngIf="offer">producto: {{offer.name}}</p>
-    <p *ngIf="offer">cant. cartas: {{offer.cantOfPokeballs}}</p>
-    <p *ngIf="offer">precio: {{offer.price}}</p>
-    <button (click)="comprar()">comprar</button>
+            <div class="form-group">
+              <label for="expirationDate">Fecha de Vencimiento</label>
+              <input type="text" id="expirationDate" class="form-control" formControlName="expirationDate" placeholder="MM/YY" maxlength="5">
+              <div *ngIf="expirationDate.errors && expirationDate.errors['required'] && (expirationDate.dirty || expirationDate.touched)">
+                <div class="text-danger">La fecha de vencimiento es obligatoria.</div>
+              </div>
+            </div>
 
+            <div class="form-group">
+              <label for="cvv">Código de Seguridad (CVV)</label>
+              <input type="text" id="cvv" class="form-control" formControlName="cvv" placeholder="CVV" maxlength="3">
+              <div *ngIf="cvv.errors && cvv.errors['required'] && (cvv.dirty || cvv.touched)">
+                <div class="text-danger">El CVV es obligatorio.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cardHolderName">Nombre del Titular de la Tarjeta</label>
+              <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName" placeholder="Nombre del Titular">
+              <div *ngIf="cardHolderName.errors && cardHolderName.errors['required'] && (cardHolderName.dirty || cardHolderName.touched)">
+                <div class="text-danger">El nombre del titular es obligatorio.</div>
+              </div>
+            </div>
+            <div id="infoPago" class="mt-5"> 
+              <h3 *ngIf="offer?.price !== null">Total del pago: {{ offer?.price }} u$d</h3>
+              <h6 class="text-muted" *ngIf="offer?.cantOfPokeballs !== null">Cantidad Pokebolas: {{ offer?.cantOfPokeballs }}</h6>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Comprar</button> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
