@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { CartasService } from 'src/app/services/cartas.service';
 import { TiendaService } from 'src/app/services/tienda.service';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { TiendaService } from 'src/app/services/tienda.service';
 export class AbrirCartasComponent {
 
   user: any
+  pokemon: Pokemon | undefined
 
   constructor(private router:Router,private pokemonService:PokemonService, private cartasService:CartasService, private tiendaService:TiendaService){
     this.getRandomPokemon()
@@ -29,6 +31,8 @@ export class AbrirCartasComponent {
 
     this.pokemonService.getPokemon(randomNumber.toString()).subscribe(
       (response)=>{
+        this.pokemon = response
+        //aca podes usar el pokemon que se consiguio
         if(this.user){
           let user = this.user.id
           let pokemon = response.id.toString()
