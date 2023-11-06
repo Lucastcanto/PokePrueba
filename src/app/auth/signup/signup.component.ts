@@ -49,6 +49,7 @@ export class SignupComponent {
           this.router.navigate(['/inicio'])
         },
         (error)=>{
+          this.signupError = "Este email ya se encuentra registrado"
           console.log(error)
         }
       )
