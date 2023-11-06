@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'modificar-perfil', component: ModificarPerfilComponent},
   {path: 'tienda',component:TiendaComponent },
   {path: 'transaccion' , component: TransaccionComponent},
-  {path: 'abrirCartas', component:AbrirCartasComponent }
+  {path: 'abrir-cartas', component:AbrirCartasComponent }
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { PokemonSpeciesService } from 'src/app/services/pokemon-species.service';
 import { type } from 'src/app/models/type.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private cartasService: CartasService,
     private pokemonService: PokemonService,
-    private pokemonSpeciesService: PokemonSpeciesService
+    private pokemonSpeciesService: PokemonSpeciesService,
+    private router:Router
   ) {
     this.datos = localStorage.getItem('user');
 
@@ -32,6 +34,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     // Agrega aquí cualquier inicialización adicional que puedas necesitar.
+  }
+
+  goToAbrirCartas(){
+    console.log("navegar")
+    this.router.navigate(["/abrir-cartas"])
   }
 
   getCartas() {
