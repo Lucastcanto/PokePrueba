@@ -8,10 +8,10 @@
       <div class="col-12">
         <div class="container mt-3"> 
           <h2>Formulario de Compra</h2>
-          <form [formGroup]="creditCardForm" (ngSubmit)="comprar()">
+          <form [formGroup]="creditCardForm">
             <div class="form-group">
               <label for="cardNumber">Número de Tarjeta de Crédito</label>
-              <input type="text" id="cardNumber" class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16" inputmode="numeric" pattern="[0-9]*">
+              <input type="text" id="cardNumber" class="form-control" formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16" inputmode="numeric" pattern="[0-9]*" required>
               <div *ngIf="cardNumber.errors && cardNumber.errors['required'] && (cardNumber.dirty || cardNumber.touched)">
                 <div class="text-danger">El número de tarjeta es obligatorio.</div>
               </div>
@@ -27,7 +27,7 @@
 
             <div class="form-group">
               <label for="cvv">Código de Seguridad (CVV)</label>
-              <input type="text" id="cvv" class="form-control" formControlName="cvv" placeholder="CVV" maxlength="3">
+              <input type="text" id="cvv" class="form-control" formControlName="cvv" placeholder="CVV" maxlength="3" minlength="3">
               <div *ngIf="cvv.errors && cvv.errors['required'] && (cvv.dirty || cvv.touched)">
                 <div class="text-danger">El CVV es obligatorio.</div>
               </div>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
               <label for="cardHolderName">Nombre del Titular de la Tarjeta</label>
-              <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName" placeholder="Nombre del Titular">
+              <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName" placeholder="Nombre del Titular" inputmode="text" pattern="[A-Za-z]+">
               <div *ngIf="cardHolderName.errors && cardHolderName.errors['required'] && (cardHolderName.dirty || cardHolderName.touched)">
                 <div class="text-danger">El nombre del titular es obligatorio.</div>
               </div>
@@ -44,7 +44,7 @@
               <h3 *ngIf="offer?.price !== null">Total del pago: {{ offer?.price }} u$d</h3>
               <h6 class="text-muted" *ngIf="offer?.cantOfPokeballs !== null">Cantidad Pokebolas: {{ offer?.cantOfPokeballs }}</h6>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Comprar</button> 
+            <button type="submit" (click)="comprar()" class="btn btn-primary mt-3" [disabled]="!creditCardForm.valid">Comprar</button> 
           </form>
         </div>
       </div>

@@ -17,19 +17,19 @@ export class TransaccionComponent {
   userData: string | null
   offer: Offer | null
   user: any | null
-  creditCardForm: FormGroup;
+  creditCardForm = this.fb.group({
+    cardNumber: ['', [Validators.required, this.creditCardValidator, Validators.maxLength(16)]],
+    expirationDate: ['', [Validators.required, this.validateExpirationDate]],
+    cvv: ['', [Validators.required]],
+    cardHolderName: ['', [Validators.required]]
+  });
 
 
   constructor(private router:Router, private tiendaService:TiendaService,private fb: FormBuilder){
     this.offerData = localStorage.getItem("compra")
     this.userData = localStorage.getItem("user")
 
-    this.creditCardForm = this.fb.group({
-      cardNumber: ['', [Validators.required, this.creditCardValidator, Validators.maxLength(16)]],
-      expirationDate: ['', [Validators.required, this.validateExpirationDate]],
-      cvv: ['', [Validators.required]],
-      cardHolderName: ['', [Validators.required]]
-    });
+    
 
     if(this.offerData && this.userData){
       console.log(this.userData+ this.offerData)
@@ -42,9 +42,14 @@ export class TransaccionComponent {
     }
   }
 
-  validateExpirationDate(control: { value: any; }) {
+  validateExpirationDate(control: { value: string|null }) {
+    const date = new Date()
+    const currentYear = date.getFullYear().toString().slice(-2)
     const expirationDate = control.value;
+    const lastTwoExp = expirationDate?.slice(-2)
+    console.log("current: "+currentYear+"\nexp: "+lastTwoExp)
 
+    
     if (expirationDate) {
       // Usamos una expresión regular para verificar el formato "MM/YY"
       const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
@@ -52,27 +57,35 @@ export class TransaccionComponent {
         return { invalidDate: true };
       }
     }
+    if(lastTwoExp && lastTwoExp<currentYear){
+      return { invalidDate: true };
+    }
 
     return null;
   }
 
   comprar() {
-    if (this.offer && this.user) {
-      let pokebolasTotal = this.user.pokebolas + this.offer.cantOfPokeballs;
-  
-      this.tiendaService.updatePokeballs(this.user.id.toString(), pokebolasTotal).subscribe(
-        (response) => {
-          localStorage.setItem('user', JSON.stringify({ nombre: this.user.nombre, apellido: this.user.apellido, email: this.user.email, creditos: this.user.creditos, pokebolas: pokebolasTotal, id: this.user.id }));
-          console.log(response);
-          this.router.navigate(["/tienda"]);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    } else {
-      console.log("Hubo un error.");
+    if(this.creditCardForm.valid){
+      if (this.offer && this.user) {
+        let pokebolasTotal = this.user.pokebolas + this.offer.cantOfPokeballs;
+        
+        this.tiendaService.updatePokeballs(this.user.id.toString(), pokebolasTotal).subscribe(
+          (response) => {
+            localStorage.setItem('user', JSON.stringify({ nombre: this.user.nombre, apellido: this.user.apellido, email: this.user.email, creditos: this.user.creditos, pokebolas: pokebolasTotal, id: this.user.id }));
+            console.log(response);
+            this.router.navigate(["/tienda"]);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else {
+        console.log("Hubo un error.");
+      }
+    }else{
+      console.log("hubo un error")
     }
+    
   }
   
 
@@ -118,7 +131,7 @@ export class TransaccionComponent {
         }
   
         if (sum % 10 === 0) {
-          return null; // El número de tarjeta es válido según Luhn
+          return null // El número de tarjeta es válido según Luhn
                       // Valid VISA: 4888524251678924   Invalid VISA: 4888524251678923
         } else {
           console.log("NUMERO DE TARJETA INVALIDO.")
