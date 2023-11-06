@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { CartasService } from 'src/app/services/cartas.service';
-import { Pokemon } from 'src/app/models/pokemon.model';
-import { User } from 'src/app/services/auth/user';
+import { TiendaService } from 'src/app/services/tienda.service';
+
 
 @Component({
   selector: 'app-abrir-cartas',
@@ -14,7 +14,7 @@ export class AbrirCartasComponent {
 
   user: any
 
-  constructor(private router:Router,private pokemonService:PokemonService, private cartasService:CartasService){
+  constructor(private router:Router,private pokemonService:PokemonService, private cartasService:CartasService, private tiendaService:TiendaService){
     this.getRandomPokemon()
     let data = localStorage.getItem('user')
     if(data){
@@ -37,10 +37,22 @@ export class AbrirCartasComponent {
           this.cartasService.createCard(user.toString(), pokemon).subscribe(
             (response)=>{
               console.log("nueva carta: "+response.pokemonID)
-              
+              let pokebolasTotal = this.user.pokebolas - 1
+              this.tiendaService.updatePokeballs(user, pokebolasTotal).subscribe(
+                (response)=>{
+                  localStorage.setItem('user', JSON.stringify({ nombre: this.user.nombre, apellido: this.user.apellido, email: this.user.email, creditos: this.user.creditos, pokebolas: pokebolasTotal, id: this.user.id }));
+                  let data = localStorage.getItem('user')
+                  if(data){
+                    this.user = JSON.parse(data)
+                  }
+                },
+                (error)=>{
+                  console.log(error)//tirar mensaje
+                }
+              )
             },
             (error)=>{
-              console.log(error)
+              console.log(error)//tirar mensaje
             }
           )
         }

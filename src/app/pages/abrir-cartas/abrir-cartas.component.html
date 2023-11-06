@@ -20,5 +20,6 @@
         </label>
     </div>
 </div>
-<button class="btn btn-primary text-white fw-bold" (click)="getRandomPokemon()">ABRIR OTRA CARTA</button>
+
+<button class="btn btn-primary text-white fw-bold" (click)="getRandomPokemon()" [disabled]="user.pokebolas==0">ABRIR OTRA CARTA({{user.pokebolas}})</button>
 </div>
