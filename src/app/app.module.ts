@@ -16,6 +16,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-perfil.component';
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { TransaccionComponent } from './pages/transaccion/transaccion.component';
+import { AbrirCartasComponent } from './pages/abrir-cartas/abrir-cartas.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TransaccionComponent } from './pages/transaccion/transaccion.component'
     ModificarPerfilComponent,
     TiendaComponent,
     TransaccionComponent,
+    AbrirCartasComponent,
   ],
   imports: [
     BrowserModule,
