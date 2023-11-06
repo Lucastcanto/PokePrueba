@@ -14,7 +14,7 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 export class AbrirCartasComponent {
 
   user: any
-  pokemon: Pokemon | undefined
+  pokemon!: Pokemon; 
 
   constructor(private router:Router,private pokemonService:PokemonService, private cartasService:CartasService, private tiendaService:TiendaService){
     this.getRandomPokemon()
