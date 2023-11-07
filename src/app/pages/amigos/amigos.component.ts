@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./amigos.component.css']
 })
 export class AmigosComponent {
+  errorMessage:string=""
   user: any
   followers: any[] = []
   followed: any[] = []
@@ -74,15 +75,18 @@ export class AmigosComponent {
             },
             (error)=>{
               console.log("no se pudo seguir al usuario")
+              this.errorMessage="Ya sigues a este usuario."
             }
           )
         },
         (error)=>{
           console.log("no se encontro al usuario")
+          this.errorMessage="Usuario no registrado"
         }
       )
     }else{
       console.log("no te podes seguir o tenes que meter un email")
+      this.errorMessage="Usuario invalido."
     }
     
   }

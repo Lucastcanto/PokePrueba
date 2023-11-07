@@ -114,8 +114,10 @@ body {
 }
 
 .flip-checkbox:checked + .box-label .body {
+  animation: flipCard 1s; /* Duración de la animación (ajusta según tu preferencia) */
   transform: rotateY(180deg);
 }
+
 
 .container .box .body .content div {
   transform-style: preserve-3d;
@@ -132,6 +134,16 @@ body {
     height: 100%; /* Altura 100% para ajustarse al contenedor */
   }
   
+  @keyframes flip-card {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
   
-  
+  .box-label .body {
+    animation-fill-mode: both;
+  }
   

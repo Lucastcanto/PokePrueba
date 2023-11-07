@@ -1,25 +1,45 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 col-lg-3 col-xl-2 bg-danger">
-        <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-md-12 col-lg-9 col-xl-10">
-        <div class="row">
-            <div class="col-12">
-                <h3>SEGUIDORES</h3>
-                <ul *ngFor="let follower of followers">
-                    <li>{{follower.nombre}}</li>
-                </ul>
-                <h3>SIGUIENDO</h3>
-                <ul>
-                    <ul *ngFor="let follow of followed">
-                        <button (click)="showCollection(follow.nombre,follow.userid)">{{follow.nombre}}</button>
+            <app-sidebar></app-sidebar>
+         </div>
+            <div class="col-md-12 col-lg-9 col-xl-10">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-7">
+                            <h3 class="text-muted" style="padding: 3%;">Buscar por correo electrónico</h3>
+                                <div class="input-group mb-3">
+                                    <input type="email" name="email" id="UserEmail" #email class="form-control" placeholder="Correo electrónico">
+                                    <div class="input-group-append">
+                                    <button class="btn btn-primary"  (click)="followUser(email.value)">
+                                        <i class="bi bi-person-fill-add"> Seguir</i>
+                                    </button>
+                                  </div>
+                                </div>              
+                          </div>
+                          <p class="text-danger">{{errorMessage}}</p>
+
+                        <div id="userLogin">
+                             <app-user-info></app-user-info>
+                        </div>
+                <h3 class="title fw-bold" style="padding: 3%;">SEGUIDORES:</h3>
+                <div class="scrollable-list">
+                    <ul *ngFor="let follower of followers">
+                         <li>{{follower.nombre}} </li>
                     </ul>
+             </div>
+                 <h3 class="title fw-bold" style="padding: 3%;">SIGUIENDO:</h3>
+            <div class="scrollable-list">
+                <ul *ngFor="let follow of followed">
+                    <li>
+                        <i class="bi bi-eye"></i> {{follow.nombre}} <a (click)="showCollection(follow.nombre, follow.userid)"></a> <a><i class="bi bi-person-dash"></i></a>
+                    </li>
                 </ul>
             </div>
-            <label for="email">email:</label>
-            <input type="email" name="email" id="UserEmail" #email>
-            <button (click)="followUser(email.value)">seguir</button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  <app-footer></app-footer>
+  

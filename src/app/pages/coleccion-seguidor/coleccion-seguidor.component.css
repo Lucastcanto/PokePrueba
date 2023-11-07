@@ -1,0 +1,50 @@
+h3{
+    padding: 3%;
+}
+
+.card{
+min-height: 5rem;
+min-width: 3rem;
+border: 1px solid #ccc;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.grass-bg {
+    background-color: rgb(186, 255, 186);
+  }
+  
+  .fire-bg {
+    background-color: rgb(255, 210, 142);
+  }
+  
+  .water-bg {
+    background-color: rgb(151, 204, 243);
+  }
+  
+  .poison-bg {
+    background-color: rgb(254, 190, 254);
+  }
+
+  .electric-bg {
+    background-color: rgb(255, 255, 224);
+  }
+
+  .psychic-bg {
+    background-color: rgb(243, 222, 169);
+  }
+
+  .fighting-bg {
+    background-color:rgb(248, 174, 174);
+  }
+
+  .ground-bg {
+    background-color:rgb(162, 117, 117);
+  }
+
+  .flying-bg {
+    background-color:rgb(255, 255, 255);
+  }
+
+  .bug-bg {
+    background-color: rgb(152, 251, 152);
+  }

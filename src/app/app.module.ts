@@ -20,6 +20,7 @@ import { AbrirCartasComponent } from './pages/abrir-cartas/abrir-cartas.componen
 import { AmigosComponent } from './pages/amigos/amigos.component';
 import { ColeccionSeguidorComponent } from './pages/coleccion-seguidor/coleccion-seguidor.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
