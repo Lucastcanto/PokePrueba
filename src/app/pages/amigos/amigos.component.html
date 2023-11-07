@@ -32,7 +32,7 @@
             <div class="scrollable-list">
                 <ul *ngFor="let follow of followed">
                     <li>
-                        <i class="bi bi-eye"></i> {{follow.nombre}} <a (click)="showCollection(follow.nombre, follow.userid)"></a> <a (click)="unfollowUser(follow.userid)"><i class="bi bi-person-dash"></i></a>
+                        <a (click)="showCollection(follow.nombre, follow.userid)"> <i class="bi bi-eye"></i> </a>   {{follow.nombre}}  <a (click)="unfollowUser(follow.userid)"><i class="bi bi-person-dash"></i></a>
                     </li>
                 </ul>
             </div>
