@@ -37,7 +37,18 @@ export class AmigosService {
     return response
   }
 
-  deleteFollow(){
-    
+  deleteFollow(seguidorId: string, seguidoId:string){
+    console.log(seguidorId, seguidoId)
+    let headers = {'Content-Type':'application/json', 'charset': 'utf-8'}
+    let body = JSON.stringify({
+      seguidorID: seguidorId,
+      seguidoID: seguidoId
+    })
+
+    let options = {headers: headers, body: body}
+
+    let response = this.http.delete(this.apiUrlFollow, {headers, body})
+
+    return response
   }
 }

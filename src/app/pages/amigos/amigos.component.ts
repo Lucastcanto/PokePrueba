@@ -91,4 +91,19 @@ export class AmigosComponent {
     
   }
 
+  unfollowUser(idToUnfollow: string){
+    console.log(idToUnfollow)
+    if(this.user){
+      this.amigosService.deleteFollow(this.user.id, idToUnfollow).subscribe(
+        (response)=>{
+          this.router.navigate(["/amigos"])
+          console.log(response)
+        },
+        (error)=>{
+          console.log(error)
+        }
+      )
+    }
+  }
+
 }
