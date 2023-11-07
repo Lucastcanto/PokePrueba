@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-3 col-xl-2 bg-danger">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-12 col-lg-9 col-xl-10">
+        <div class="row">
+            <div class="col-12">
+                <h3>SEGUIDORES</h3>
+                <ul *ngFor="let follower of followers">
+                    <li>{{follower.nombre}}</li>
+                </ul>
+                <h3>SIGUIENDO</h3>
+                <ul>
+                    <ul *ngFor="let follow of followed">
+                        <button (click)="showCollection(follow.nombre,follow.userid)">{{follow.nombre}}</button>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

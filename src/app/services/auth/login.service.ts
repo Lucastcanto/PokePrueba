@@ -8,6 +8,7 @@ import { User } from './user';
 export class LoginService {
 
   private apiUrl = "https://api-tpi-production.up.railway.app/api/login/"
+  private apiUrlId = "https://api-tpi-production.up.railway.app/api/users/"
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,13 @@ export class LoginService {
     let response = this.http.get<User>(this.apiUrl+email)
 
      return response
+
+  }
+
+  getUserById(id: string){
+    let response = this.http.get<User>(this.apiUrlId+id)
+
+    return response
 
   }
 }

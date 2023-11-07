@@ -17,6 +17,8 @@ import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-per
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { TransaccionComponent } from './pages/transaccion/transaccion.component';
 import { AbrirCartasComponent } from './pages/abrir-cartas/abrir-cartas.component';
+import { AmigosComponent } from './pages/amigos/amigos.component';
+import { ColeccionSeguidorComponent } from './pages/coleccion-seguidor/coleccion-seguidor.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AbrirCartasComponent } from './pages/abrir-cartas/abrir-cartas.componen
     TiendaComponent,
     TransaccionComponent,
     AbrirCartasComponent,
+    AmigosComponent,
+    ColeccionSeguidorComponent,
   ],
   imports: [
     BrowserModule,

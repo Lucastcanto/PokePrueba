@@ -8,6 +8,8 @@ import { ModificarPerfilComponent } from './pages/modificar-perfil/modificar-per
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { TransaccionComponent } from './pages/transaccion/transaccion.component';
 import { AbrirCartasComponent } from './pages/abrir-cartas/abrir-cartas.component';
+import { AmigosComponent } from './pages/amigos/amigos.component';
+import { ColeccionSeguidorComponent } from './pages/coleccion-seguidor/coleccion-seguidor.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'iniciar-sesion', pathMatch:'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'modificar-perfil', component: ModificarPerfilComponent},
   {path: 'tienda',component:TiendaComponent },
   {path: 'transaccion' , component: TransaccionComponent},
-  {path: 'abrir-cartas', component:AbrirCartasComponent }
+  {path: 'abrir-cartas', component:AbrirCartasComponent },
+  {path: 'amigos', component: AmigosComponent},
+  {path: 'seguido', component: ColeccionSeguidorComponent}
 ];
 
 @NgModule({
