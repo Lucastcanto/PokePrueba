@@ -1,1 +1,7 @@
-<p>coleccion-seguidor works!</p>
+<h1>coleccion de {{user.nombre}}</h1>
+<app-user-info></app-user-info>
+<ul *ngFor="let pokemon of coleccion">
+    <li>
+        {{pokemon.name}}
+    </li>
+</ul>
