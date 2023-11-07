@@ -63,4 +63,28 @@ export class AmigosComponent {
     this.router.navigate(['/seguido'])
   }
 
+  followUser(email:string){
+    if(email != this.user.email && email!=""){
+      this.loginService.getUser(email).subscribe(
+        (response)=>{
+          this.amigosService.createFollow(this.user.id, response.userid.toString()).subscribe(
+            (response2)=>{
+              console.log(response2)
+              this.followed.push(response)
+            },
+            (error)=>{
+              console.log("no se pudo seguir al usuario")
+            }
+          )
+        },
+        (error)=>{
+          console.log("no se encontro al usuario")
+        }
+      )
+    }else{
+      console.log("no te podes seguir o tenes que meter un email")
+    }
+    
+  }
+
 }

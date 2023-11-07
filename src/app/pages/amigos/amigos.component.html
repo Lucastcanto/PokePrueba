@@ -17,6 +17,9 @@
                     </ul>
                 </ul>
             </div>
+            <label for="email">email:</label>
+            <input type="email" name="email" id="UserEmail" #email>
+            <button (click)="followUser(email.value)">seguir</button>
         </div>
     </div>
 </div>

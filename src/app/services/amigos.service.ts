@@ -24,8 +24,17 @@ export class AmigosService {
     return response
   }
 
-  createFollow(){
+  createFollow(seguidorId: string, seguidoId:string){
+    console.log(seguidorId, seguidoId)
+    let headers = {'Content-Type':'application/json', 'charset': 'utf-8'}
+    let body = JSON.stringify({
+      seguidorID: seguidorId,
+      seguidoID: seguidoId
+    })
 
+    let response = this.http.post<amistad>(this.apiUrlFollow, body, {headers})
+
+    return response
   }
 
   deleteFollow(){
