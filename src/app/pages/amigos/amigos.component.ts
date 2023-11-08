@@ -93,7 +93,10 @@ export class AmigosComponent {
 
   unfollowUser(idToUnfollow: string){
     console.log(idToUnfollow)
-    if(this.user){
+    let elementPos = this.followed.map(function(x) {return x.id; }).indexOf(idToUnfollow);
+    let objectFound = this.followed[elementPos]
+    console.log(elementPos)
+    /* if(this.user){
       this.amigosService.deleteFollow(this.user.id, idToUnfollow).subscribe(
         (response)=>{
           this.updatefollowed()
@@ -103,7 +106,7 @@ export class AmigosComponent {
           console.log(error)
         }
       )
-    }
+    } */
   }
 
   updatefollowed(){

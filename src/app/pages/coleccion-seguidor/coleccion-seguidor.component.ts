@@ -24,6 +24,7 @@ export class ColeccionSeguidorComponent {
             this.pokemonService.getPokemon(carta.pokemonID.toString()).subscribe(
               (response)=>{
                 this.coleccion.push(response)
+                this.coleccion.sort((a,b)=> a.id - b.id)
               },
               (error)=>{
                 console.log(error)
