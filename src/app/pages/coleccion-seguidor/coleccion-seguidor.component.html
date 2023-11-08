@@ -18,8 +18,8 @@
                     [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon), 'fire-bg': isFireType(pokemon), 'phantom-bg': isPhantomType(pokemon),'dragon-bg': isDragonType(pokemon),'normal-bg': isNormalType(pokemon),'rock-bg': isRockType(pokemon) }">
                     <img [src]="pokemon.sprites.front_default" class="card-img-top" alt="Imagen del Pokemon">
                     <div class="card-body">
-                      <h5 class="card-title">{{ pokemon.name.toUpperCase()}}</h5> <p class="text-muted">{{pokemon.id}}</p>
-                      <h6 class="card-subtitle mb-2 text-muted">{{pokemon.descripcion}}</h6> 
+                      <h5 class="card-title" style="display: inline;">{{ pokemon.name.toUpperCase() }} </h5>
+                      <h5 class="text-muted" style="display: inline;">#{{ pokemon.id }}</h5>                   
                       <div class="card-header bg-dark text-white">
                         Tipo:
                       </div>
