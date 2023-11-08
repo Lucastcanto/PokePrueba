@@ -96,7 +96,7 @@ export class AmigosComponent {
     if(this.user){
       this.amigosService.deleteFollow(this.user.id, idToUnfollow).subscribe(
         (response)=>{
-          this.router.navigate(["/amigos"])
+          this.updatefollowed()
           console.log(response)
         },
         (error)=>{
@@ -104,6 +104,30 @@ export class AmigosComponent {
         }
       )
     }
+  }
+
+  updatefollowed(){
+    if(this.user){
+      this.followed = [];
+      this.amigosService.getFollowed(this.user.id).subscribe(
+        (response)=>{
+          response.forEach(amistad => {
+            this.loginService.getUserById(amistad.seguidoID.toString()).subscribe(
+              (response)=>{
+                this.followed.push(response)
+              },
+              (error)=>{
+                console.log(error)
+              }
+            )
+          });
+        },
+        (error)=>{
+          console.log(error)
+        }
+      )
+    }
+    
   }
 
 }
