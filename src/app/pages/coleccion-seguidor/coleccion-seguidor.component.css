@@ -48,3 +48,20 @@ box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   .bug-bg {
     background-color: rgb(152, 251, 152);
   }
+
+  .phantom-bg {
+    background-color: rgb(115, 115, 115);
+  }
+
+  .dragon-bg {
+    background-color: rgb(243, 70, 70);
+  }
+
+  .normal-bg {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .rock-bg {
+    background-color: rgb(72, 67, 41);
+  }
+  

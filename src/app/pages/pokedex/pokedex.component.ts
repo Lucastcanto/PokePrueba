@@ -15,7 +15,7 @@ import { flavor_text_entry } from '../../models/flavour-text.model';
 export class PokedexComponent {
   pokedex: Pokemon[]=[];
   selectedPokemon: Pokemon | null = null;
-
+errorMessage:String="";
 
   constructor(private pokemonService: PokemonService,private pokemonSpeciesService: PokemonSpeciesService){
     for (let index = 1; index < 152; index++) {
@@ -94,6 +94,7 @@ export class PokedexComponent {
 
   showPokemonSearched(pokemon: Pokemon | undefined, pokemonName: HTMLElement, pokemonImg: HTMLImageElement, pokemonDesc: HTMLElement, typeList: HTMLElement) {
     if(pokemon){
+      this.errorMessage="";
 
       if (pokemonName) {
         pokemonName.innerText = pokemon.name.toUpperCase();
@@ -119,7 +120,7 @@ export class PokedexComponent {
       }
 
     }else{
-      //dejar aca avisar no encontrado
+      this.errorMessage="Pokemon no encontrado."
     }
     
   }

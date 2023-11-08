@@ -16,10 +16,11 @@
             </div>
           </div>
           <div class="col-lg-8">
+            <p class="text-danger">{{errorMessage}}</p>
             <div class="mt-4 input-group">
               <label for="name"></label>
               <input type="text" class="form-control" placeholder="Ingrese un nombre" aria-label="Search" aria-describedby="basic-addon2" name="name" id="name" >
-             <div class="input-group-append">
+              <div class="input-group-append">
               <button class="btn btn-outline-secondary" (click)="showPokemonSearched(getPokemonName(), pokemonName, pokemonImg, pokemonDesc, typeList)">Buscar</button>
             </div>
             </div>
