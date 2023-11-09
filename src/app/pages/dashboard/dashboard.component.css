@@ -64,4 +64,16 @@ box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   .rock-bg {
     background-color: rgb(72, 67, 41);
   }
+
+  .ghost-bg {
+    background-color: rgb(122, 121, 116);
+  }
+
+  .fairy-bg {
+    background-color: rgb(227, 151, 225);
+  }
+
+  .ice-bg {
+    background-color: rgb(151, 231, 255);
+  }
   

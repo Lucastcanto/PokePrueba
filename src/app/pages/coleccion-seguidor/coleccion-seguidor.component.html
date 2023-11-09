@@ -15,7 +15,7 @@
                 <div class="col-6 col-md-4 col-lg-3" *ngFor="let pokemon of coleccion">
                   <div class="card border border-dark mt-3" style="width: 15rem; height: 33rem;" >
                   <div class="" style="width: 14.9rem; height: 10rem; border: 1px solid #ccc; box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);" 
-                    [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon), 'fire-bg': isFireType(pokemon), 'phantom-bg': isPhantomType(pokemon),'dragon-bg': isDragonType(pokemon),'normal-bg': isNormalType(pokemon),'rock-bg': isRockType(pokemon) }">
+                    [ngClass]="{ 'grass-bg': isGrassType(pokemon), 'water-bg': isWaterType(pokemon),'poison-bg': isPoisonType(pokemon),'electric-bg': isElectricType(pokemon),'psychic-bg': isPsychicType(pokemon),'fighting-bg': isFightingType(pokemon), 'ground-bg': isGroundType(pokemon), 'bug-bg': isBugType(pokemon), 'flying-bg': isFlyingType(pokemon), 'fire-bg': isFireType(pokemon), 'phantom-bg': isPhantomType(pokemon),'dragon-bg': isDragonType(pokemon),'normal-bg': isNormalType(pokemon),'rock-bg': isRockType(pokemon),'ghost-bg': isGhostType(pokemon),'fairy-bg': isFairyType(pokemon),'ice-bg': isIceType(pokemon)  }">
                     <img [src]="pokemon.sprites.front_default" class="card-img-top" alt="Imagen del Pokemon">
                     <div class="card-body">
                       <h5 class="card-title" style="display: inline;">{{ pokemon.name.toUpperCase() }} </h5>

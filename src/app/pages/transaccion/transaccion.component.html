@@ -35,7 +35,7 @@
 
             <div class="form-group">
               <label for="cardHolderName">Nombre del Titular de la Tarjeta</label>
-              <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName" placeholder="Nombre del Titular" inputmode="text" pattern="[A-Za-z]+">
+              <input type="text" id="cardHolderName" class="form-control" formControlName="cardHolderName" placeholder="Nombre del Titular" inputmode="text" pattern="[A-Za-z ]+">
               <div *ngIf="cardHolderName.errors && cardHolderName.errors['required'] && (cardHolderName.dirty || cardHolderName.touched)">
                 <div class="text-danger">El nombre del titular es obligatorio.</div>
               </div>
@@ -46,6 +46,7 @@
             </div>
             <button type="submit" (click)="comprar()" class="btn btn-primary mt-3" [disabled]="!creditCardForm.valid">Comprar</button> 
           </form>
+          <p class="text-danger">{{errorMessage}}</p>
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TransaccionComponent {
 
+  errorMessage:string="";
   offerData: string | null
   userData: string | null
   offer: Offer | null
@@ -80,7 +81,7 @@ export class TransaccionComponent {
           }
         );
       } else {
-        console.log("Hubo un error.");
+        this.errorMessage="Se produjo un error al procesar elpago."
       }
     }else{
       console.log("hubo un error")

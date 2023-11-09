@@ -98,6 +98,16 @@ export class ColeccionSeguidorComponent {
     return (this.getPrimaryType(pokemon)=="rock")
   }
 
+  isFairyType(pokemon: Pokemon): boolean {
+    return (this.getPrimaryType(pokemon)=="fairy")
+  }
+  isGhostType(pokemon: Pokemon): boolean {
+    return (this.getPrimaryType(pokemon)=="ghost")
+  }
+  isIceType(pokemon: Pokemon): boolean {
+    return (this.getPrimaryType(pokemon)=="ice")
+  }
+
   getPrimaryType(pokemon: Pokemon){
     return pokemon.types[0].type.name;
   }
