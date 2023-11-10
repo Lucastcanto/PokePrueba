@@ -47,7 +47,7 @@ export class SignupComponent {
       let response = this.signupService.addUser(email, password, name, lastName).subscribe(
         (response)=>{
           console.log(response)
-          this.router.navigate(['/inicio'])
+          this.router.navigate(['/iniciar-sesion'])
         },
         (error)=>{
           this.signupError = "Este email ya se encuentra registrado"
