@@ -5,20 +5,18 @@ import { Router, CanActivate, ActivatedRouteSnapshot,RouterStateSnapshot, UrlTre
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
-  data: any
 
-  constructor(private router:Router) {
-    this.data = localStorage.getItem("user")
-   }
+  constructor(private router:Router) {}
 
   canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree{
-      if(this.data){
+
+      if(localStorage.getItem("user")){
         console.log("podes pasar")
         return true
       }else{
-        console.log("no podes pasar"+this.data)
-        alert('You are not allowed to view this page. You are redirected to login Page');
+        console.log("no podes pasar")
+        alert('inicia sesion o registrate para ver la página');
         this.router.navigate(["/iniciar-sesion"])
         return false
       }

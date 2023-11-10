@@ -12,6 +12,7 @@ import { AmigosComponent } from './pages/amigos/amigos.component';
 import { ColeccionSeguidorComponent } from './pages/coleccion-seguidor/coleccion-seguidor.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TransaccionGuardService } from './services/transaccion-guard.service';
+import { AbrirCartasGuardService } from './services/abrir-cartas-guard.service';
 
 const routes: Routes = [
   {path:'',redirectTo:'iniciar-sesion', pathMatch:'full'},
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'modificar-perfil', component: ModificarPerfilComponent, canActivate: [AuthGuardService]},
   {path: 'tienda',component:TiendaComponent , canActivate: [AuthGuardService]},
   {path: 'transaccion' , component: TransaccionComponent, canActivate: [AuthGuardService, TransaccionGuardService]},
-  {path: 'abrir-cartas', component:AbrirCartasComponent, canActivate: [AuthGuardService]},
+  {path: 'abrir-cartas', component:AbrirCartasComponent, canActivate: [AuthGuardService, AbrirCartasGuardService]},
   {path: 'amigos', component: AmigosComponent, canActivate: [AuthGuardService]},
   {path: 'seguido', component: ColeccionSeguidorComponent, canActivate: [AuthGuardService]}
 ];

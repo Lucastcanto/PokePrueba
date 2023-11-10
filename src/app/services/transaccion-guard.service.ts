@@ -5,21 +5,18 @@ import { Router, CanActivate, ActivatedRouteSnapshot,RouterStateSnapshot, UrlTre
   providedIn: 'root'
 })
 export class TransaccionGuardService implements CanActivate{
-  data: any
 
-  constructor(private router:Router) {
-    this.data = localStorage.getItem("compra")
-   }
+  constructor(private router:Router) {}
 
   canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean | UrlTree{
-      if(this.data){
+      if(localStorage.getItem("compra")){
         console.log("podes pasar")
         return true
       }else{
         console.log("no podes pasar")
-        alert('You are not allowed to view this page. You are redirected to login Page');
-        this.router.navigate(["/tienda"])
+        alert('aun no elegiste oferta, para comprar dirigete a la tienda');
+        this.router.navigate(["/inicio"])
         return false
       }
   }
