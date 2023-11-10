@@ -43,6 +43,7 @@ export class SignupComponent {
     const lastName = this.signupForm.controls.lastName.value
 
     if(email!=null && password!= null && name!= null && lastName!=null){
+      // ![email, password, name, lastName].includes(null)
       let response = this.signupService.addUser(email, password, name, lastName).subscribe(
         (response)=>{
           console.log(response)
