@@ -19,7 +19,7 @@
 
             <div class="form-group">
               <label for="expirationDate">Fecha de Vencimiento</label>
-              <input type="text" id="expirationDate" class="form-control" formControlName="expirationDate" placeholder="MM/YY" maxlength="5" inputmode="numeric" pattern="[0-9]*" required>
+              <input type="text" id="expirationDate" class="form-control" formControlName="expirationDate" placeholder="MM/YY" maxlength="5"   required>
               <div *ngIf="expirationDate.errors && expirationDate.errors['required'] && (expirationDate.dirty || expirationDate.touched)">
                 <div class="text-danger">La fecha de vencimiento es obligatoria.</div>
               </div>
